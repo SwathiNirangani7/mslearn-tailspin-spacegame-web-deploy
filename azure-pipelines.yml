@@ -3,10 +3,6 @@ trigger:
 
 pool:
   name: 'MyAgentPool'
-  
-  inputs:
-    versionSpec: '6.x'
-    checkLatest: true
   demands:
   - npm
 
@@ -16,9 +12,10 @@ variables:
   dotnetSdkVersion: '5.x'
 
 steps:
-- task: NodeTool@0 
+- task: NodeTool@0
   inputs:
-    versionSpec: '12.x'
+    versionSpec: '6.x'
+    checkLatest: true
 - task: UseDotNet@2
   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
   inputs:
