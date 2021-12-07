@@ -1,10 +1,4 @@
 trigger:
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'restore'
-    projects: '**/*.csproj'
-    feedsToUse: 'select'
-    vstsFeed: '032d2a9c-5637-476a-b1cf-b743e1ffa8f2'
 - "*"
 variables:
   buildConfiguration: 'Release'
@@ -38,6 +32,8 @@ stages:
         packageType: sdk
         version: 3.1.402
         installationPath: $(Agent.ToolsDirectory)/dotnet
+
+
     - task: NodeTool@0
       inputs:
         versionSpec: '6.x'
@@ -53,11 +49,15 @@ stages:
     - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
       displayName: 'Write build info'
       workingDirectory: $(wwwrootDir)
+    
     - task: DotNetCoreCLI@2
       displayName: 'Restore project dependencies'
       inputs:
         command: 'restore'
-        projects: src/proj1/proj1.csproj
+        projects: '**/*.csproj'
+        feedsToUse: 'select'
+        vstsFeed: '032d2a9c-5637-476a-b1cf-b743e1ffa8f2'
+
     - task: DotNetCoreCLI@2
       displayName: 'Build the project - $(buildConfiguration)'
       inputs:
