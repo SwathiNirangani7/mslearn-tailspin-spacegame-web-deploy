@@ -76,7 +76,7 @@ stages:
   jobs:
   - deployment: Deploy
     pool:
-      vmImage: 'ubuntu-20.04'
+      vmImage: 'MyAgentPool'
     environment: dev
     variables:
     - group: Release
@@ -99,7 +99,7 @@ stages:
   jobs:
   - deployment: Deploy
     pool:
-      vmImage: 'ubuntu-20.04'
+      vmImage: 'MyAgentPool'
     environment: test
     variables:
     - group: 'Release'
@@ -122,7 +122,7 @@ stages:
   jobs:
   - deployment: Deploy
     pool:
-      vmImage: 'ubuntu-20.04'
+      vmImage: 'MyAgentPool'
     environment: staging
     variables:
     - group: 'Release'
