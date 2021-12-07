@@ -45,9 +45,9 @@ stages:
 
      
     - task: UseDotNet@2
-inputs:
-    packageType: 'sdk'
-    version: 
+      inputs:
+        packageType: 'sdk'
+        version: 
 
     - task: DotNetCoreCLI@2
       displayName: 'Restore project dependencies'
