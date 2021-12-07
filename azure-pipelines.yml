@@ -2,7 +2,7 @@ trigger:
 - "*"
 
 pool:
-  name: 'MyAgentPool1'
+  name: 'MyAgentPool'
   demands:
   - npm
 
