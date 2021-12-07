@@ -44,12 +44,6 @@ stages:
       displayName: 'Compile Sass assets'
 
     - task: DotNetCoreCLI@2
-      displayName: 'Restore project dependencies'
-      inputs:
-        command: 'restore'
-        projects: '*/.csproj'
-
-    - task: DotNetCoreCLI@2
       displayName: 'Build the project - $(buildConfiguration)'
       inputs:
         command: 'build'
