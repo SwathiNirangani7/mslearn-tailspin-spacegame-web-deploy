@@ -1,4 +1,10 @@
 trigger:
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+    feedsToUse: 'select'
+    vstsFeed: '032d2a9c-5637-476a-b1cf-b743e1ffa8f2'
 - "*"
 variables:
   buildConfiguration: 'Release'
